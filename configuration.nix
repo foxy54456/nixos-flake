@@ -5,8 +5,18 @@
     ./hardware-configuration.nix
   ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+boot.loader = {
+  systemd-boot.enable = false;
+
+  grub = {
+    enable = true;
+    efiSupport = true;
+    device = "nodev";
+    useOSProber = true;
+  };
+
+  efi.canTouchEfiVariables = true;
+};
 
   boot.kernelPackages =
     nix-cachyos-kernel.legacyPackages.x86_64-linux.linuxPackages-cachyos-latest;
@@ -37,6 +47,7 @@
   users.users.rayman = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
+    shell = pkgs.fish;
 
     packages = with pkgs; [
       tree
@@ -46,6 +57,7 @@
   programs.mangowc.enable = true;
   programs.firefox.enable = true;
   programs.steam.enable = true;
+  programs.fish.enable = true;
 
   environment.systemPackages = with pkgs; [
     vim

@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  dotfiles = "${config.home.homeDirectory}/nixos-dotfiles/config";
+  dotfiles = "${config.home.homeDirectory}/nixos/config";
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
   configs = {
     qtile = "qtile";
@@ -19,10 +19,11 @@ programs.git = {
  userEmail = "135515419+foxy54456@users.noreply.github.com";
 };
 home.stateVersion = "25.05";
-programs.bash = {
+programs.fish = {
 enable = true;
 shellAliases = {
     btw = "echo i use nixos, btw";
+    larp = "cmatrix; alacritty -e 'fastfetch'";
   };
  };
 
