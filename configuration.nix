@@ -57,6 +57,23 @@ boot.loader = {
   programs.mangowc.enable = true;
   programs.firefox.enable = true;
   programs.steam.enable = true;
+  
+  hardware.graphics = {
+  enable = true;
+  enable32Bit = true;
+};
+
+ services.xserver.videoDrivers = [ "nvidia" ];
+
+hardware.nvidia = {
+    modesetting.enable = true;
+
+    open = false;
+
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+ 
+
   programs.fish.enable = true;
 
   environment.systemPackages = with pkgs; [
