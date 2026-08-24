@@ -1,0 +1,12 @@
+[window]
+opacity = 0.50
+padding = { x = 10, y = 10 }
+
+[font]
+size = 11.0
+
+[font.normal]
+family = "JetBrainsMono Nerd Font"
+
+[cursor]
+style = "Beam"
