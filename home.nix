@@ -3,7 +3,6 @@ let
   dotfiles = "${config.home.homeDirectory}/nixos/config";
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
   configs = {
-    qtile = "qtile";
     nvim = "nvim";
     alacritty = "alacritty";
     rofi = "rofi";
@@ -30,7 +29,7 @@ shellAliases = {
 
 xdg.configFile = builtins.mapAttrs 
   (name: subpath: {
-   source = create_symlink"${dotfiles}/${subpath}";
+   source = create_symlink "${dotfiles}/${subpath}";
    recursive = true;
 }) 
 configs;
@@ -45,7 +44,6 @@ home.packages = with pkgs; [
  gcc
  rofi
  discord
- mangowc
  waybar
  swaybg
  qimgv

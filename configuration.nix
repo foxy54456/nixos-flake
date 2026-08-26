@@ -30,17 +30,7 @@ boot.loader = {
     enable = true;
     autoRepeatDelay = 200;
     autoRepeatInterval = 35;
-
-    windowManager.qtile = {
-      enable = true;
-
-      package = pkgs.python3.pkgs.qtile.overrideAttrs (old: {
-        disabledTests = (old.disabledTests or [ ]) ++ [
-          "test_repl_server_executes_code"
-        ];
-      });
-    };
-  };
+      };
 
   services.displayManager.ly.enable = true;
   services.desktopManager.plasma6.enable = true;
@@ -54,7 +44,6 @@ boot.loader = {
     ];
   };
  
-  programs.mangowc.enable = true;
   programs.firefox.enable = true;
   programs.steam.enable = true;
   
