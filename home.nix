@@ -9,51 +9,51 @@ let
   };
 in
 {
-home.username = "rayman";
-home.homeDirectory = "/home/rayman";
-programs.git = {
- enable = true;
- 
- userName = "foxy54456";
- userEmail = "135515419+foxy54456@users.noreply.github.com";
-};
-home.stateVersion = "25.05";
-programs.fish = {
-enable = true;
-shellAliases = {
-    btw = "echo i use nixos, btw";
-    larp = "cmatrix; alacritty -e 'fastfetch'";
+  home.username = "rayman";
+  home.homeDirectory = "/home/rayman";
+  programs.git = {
+    enable = true;
+
+    userName = "foxy54456";
+    userEmail = "135515419+foxy54456@users.noreply.github.com";
   };
- };
+  home.stateVersion = "25.05";
+  programs.fish = {
+    enable = true;
+    shellAliases = {
+      btw = "echo i use nixos, btw";
+      larp = "cmatrix; alacritty -e 'fastfetch'";
+    };
+  };
 
 
-xdg.configFile = builtins.mapAttrs 
-  (name: subpath: {
-   source = create_symlink "${dotfiles}/${subpath}";
-   recursive = true;
-}) 
-configs;
+  xdg.configFile = builtins.mapAttrs
+    (name: subpath: {
+      source = create_symlink "${dotfiles}/${subpath}";
+      recursive = true;
+    })
+    configs;
 
 
-home.packages = with pkgs; [
- vim
- ripgrep
- nil
- nixpkgs-fmt
- nodejs
- gcc
- rofi
- discord
- waybar
- swaybg
- qimgv
- kdePackages.dolphin
- fastfetch
- vlc
- stremio-linux-shell
- pear-desktop
- cmatrix
- kdePackages.kdenlive
- kdePackages.kate
-];
+  home.packages = with pkgs; [
+    vim
+    ripgrep
+    nil
+    nixpkgs-fmt
+    nodejs
+    gcc
+    rofi
+    discord
+    waybar
+    swaybg
+    qimgv
+    kdePackages.dolphin
+    fastfetch
+    vlc
+    stremio-linux-shell
+    pear-desktop
+    cmatrix
+    kdePackages.kdenlive
+    kdePackages.kate
+  ];
 }

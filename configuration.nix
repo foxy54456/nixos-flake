@@ -5,18 +5,18 @@
     ./hardware-configuration.nix
   ];
 
-boot.loader = {
-  systemd-boot.enable = false;
+  boot.loader = {
+    systemd-boot.enable = false;
 
-  grub = {
-    enable = true;
-    efiSupport = true;
-    device = "nodev";
-    useOSProber = true;
+    grub = {
+      enable = true;
+      efiSupport = true;
+      device = "nodev";
+      useOSProber = true;
+    };
+
+    efi.canTouchEfiVariables = true;
   };
-
-  efi.canTouchEfiVariables = true;
-};
 
   boot.kernelPackages =
     nix-cachyos-kernel.legacyPackages.x86_64-linux.linuxPackages-cachyos-latest;
@@ -30,7 +30,7 @@ boot.loader = {
     enable = true;
     autoRepeatDelay = 200;
     autoRepeatInterval = 35;
-      };
+  };
 
   services.displayManager.ly.enable = true;
   services.desktopManager.plasma6.enable = true;
@@ -43,25 +43,25 @@ boot.loader = {
       tree
     ];
   };
- 
+
   programs.firefox.enable = true;
   programs.steam.enable = true;
-  
+
   hardware.graphics = {
-  enable = true;
-  enable32Bit = true;
-};
+    enable = true;
+    enable32Bit = true;
+  };
 
- services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
-hardware.nvidia = {
+  hardware.nvidia = {
     modesetting.enable = true;
 
     open = false;
 
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
- 
+
 
   programs.fish.enable = true;
 
