@@ -55,5 +55,9 @@ in
     cmatrix
     kdePackages.kdenlive
     kdePackages.kate
+    curl
+    jq
+    imagemagick
+    swww
   ];
 }
